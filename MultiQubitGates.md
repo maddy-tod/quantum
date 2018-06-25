@@ -6,11 +6,11 @@ Similar to an if statement. If the control bit (the right most bit) is 1, then f
 This gives it the 'Truth table' below :
 
 | Before | After |
-| --- | --- |
-| `|00> | `|00>  |
-| `|10> | `|10>  |
-| `|01> | `|11>  |
-| `|11> | `|01>  |
+| ---    | ---   |
+| `|00>  | `|00> |
+| `|10>  | `|10> |
+| `|01>  | `|11> |
+| `|11>  | `|01> |
 
 #### NB in the composer the small circle represents the control qubit, and the large circle with a plus represents the affected qubit
 
