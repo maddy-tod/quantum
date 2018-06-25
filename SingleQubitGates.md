@@ -12,7 +12,7 @@ NB running H H measure returns 0 with P(0) = 1. This is because the H gate can b
 
 
 ### Measurement gate
-The measurement can only measure along the Z axis (ie up or down) so if the vector is perpendicular to this its 50:50 what the measurement will return. Consequently experimentally the difference between |+> and |-> cannot be measured, so what we have to do is perform rotations and then use the conventional measurement gate.
+The measurement can only measure along the Z axis (ie up or down) so if the vector is perpendicular to this it's 50:50 what the measurement will return. Consequently experimentally the difference between |+> and |-> cannot be measured, so what we have to do is perform rotations and then use the conventional measurement gate.
 
 ### Z gate
 180 degree rotation around the vertical axis (the Z axis).

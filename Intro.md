@@ -8,15 +8,15 @@ What this formula is saying is that the state is made up of a straightforward li
 
 ## Bloch Sphere
 We visualise qubits as spheres, and the Bloch Sphere is the specific one used. It has a radius of 1. A point on its surfaces represents the state of a qubit.
-![qubit image](https://en.wikipedia.org/wiki/Bloch_sphere)
-The angle from the centre to the surface point is used to describe the state. This allows for any possibly qubit state, no matter the coefficients, to be represented. By convetion, the 'North Pole' of the Bloch Sphere is |0> and the opposite pole is |1>. Because of this, the angle theta will always be between 0 and 180 (or pi) degrees, where 180 is |1>. There is another angle phi which describes the rotation around the vertical axis. If phi is non-zero, there has been a change in the phase of the qubit.
+![qubit image](https://en.wikipedia.org/wiki/Bloch_sphere#/media/File:Bloch_sphere.svg)
+The angle from the centre to the surface point is used to describe the state. This allows for any possible qubit state, no matter the coefficients, to be represented. By convetion, the 'North Pole' of the Bloch Sphere is |0> and the opposite pole is |1>. Because of this, the angle theta will always be between 0 and 180 (or pi) degrees, where 180 is |1>. There is another angle phi which describes the rotation around the vertical axis. If phi is non-zero, there has been a change in the phase of the qubit.
 
 
 ## Superposition
 A linear combination of both the |0> and |1> states. If the chance of it being |0> is equal to the chance of it being |1> it is said to be in an equal superposition state. If this is the case, then the expected value for the experiment is 0.5 (though only 1 or 0 can ever be observed).
 
 ## Entanglement
-Observing the first of 2 entangled qubits cayuses it to behave randomly, but tells you exactly how the other bit would behave if it was also observed.
+Observing the first of 2 entangled qubits causes it to behave randomly, but tells you exactly how the other bit would behave if it was also observed.
 The qubits can be arbitrarily far apart.
 
 After measuring a qubit, it becomes a classical bit ie it looses any entanglement or superposition it previously had.
