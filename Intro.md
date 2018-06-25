@@ -15,9 +15,15 @@ The angle from the centre to the surface point is used to describe the state. Th
 ## Superposition
 A linear combination of both the |0> and |1> states. If the chance of it being |0> is equal to the chance of it being |1> it is said to be in an equal superposition state. If this is the case, then the expected value for the experiment is 0.5 (though only 1 or 0 can ever be observed).
 
+|z> = a|0> + b|1>
+|z> is said to be the superposition of the states |0> and |1>, with amplitudes a and b.
+
 ## Entanglement
 Observing the first of 2 entangled qubits causes it to behave randomly, but tells you exactly how the other bit would behave if it was also observed.
 The qubits can be arbitrarily far apart.
 
 After measuring a qubit, it becomes a classical bit ie it looses any entanglement or superposition it previously had.
 The results from measuring a qubit, over a series of tests, is often shown as a histogram, where the highest point is the most likely result. If you are using multiple qubits, the results are treated as binary numbers.
+
+## Decoherence
+Decoherence occurs when some outside force (eg heat energy that is absorbed by the chip) interferes with the computation and makes the results achieved unusable. If these errors occur at a small enough rate they can be corrected. The methods used are different from those used on classical computers but it is still possible.

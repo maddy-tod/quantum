@@ -1,5 +1,5 @@
 # Single qubit gates
-Gates are used to control the quantum computer, and bare similarities to gates in a classical computer such as AND and XOR.
+Gates are used to control the quantum computer, and bare similarities to gates in a classical computer such as AND and XOR. All transformations can be reversed, except measurement which is only used at the end of a program. 
 
 ### X gate (or X rotation)
 Similar to a classical NOT gate. Called a rotation as it rotates the state by pi radians(180 degrees) around the X axis, so if you started in |0> you rotate to |1> and vice versa.
