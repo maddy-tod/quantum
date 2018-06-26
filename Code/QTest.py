@@ -1,6 +1,10 @@
+# Import the utils
+import utils
+
 # Import the QISKit SDK
 from qiskit import QuantumCircuit, ClassicalRegister, QuantumRegister
 from qiskit import available_backends, execute
+
 
 # Create a Quantum Register with 2 qubits.
 q = QuantumRegister(2)
@@ -24,9 +28,8 @@ def twoH() :
     qc.h(q[1])
 
 
-#bellState()
-twoH()
-
+bellState()
+#twoH()
 
 
 # See a list of available local simulators
@@ -41,8 +44,7 @@ sim_result = job_sim.result()
 # Show the results
 print("simulation: ", sim_result)
 # Returns a dict
-print(sim_result.get_counts(qc))
-pprint(sim_result.get_counts(qc))
+utils.pprint(sim_result.get_counts(qc))
 
 
 
