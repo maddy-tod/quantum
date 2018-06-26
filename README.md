@@ -8,5 +8,5 @@
 [Dirac Notation](DiracNotation.md) - brief overview of the notation used
 
 
-
+## References
 Most images and information come from the [IBMQ beginners tutorial](https://quantumexperience.ng.bluemix.net/qx/tutorial?sectionId=beginners-guide&page=introduction) and [Mermin's book](https://www.amazon.co.uk/Quantum-Computer-Science-David-Mermin/dp/0521876583).

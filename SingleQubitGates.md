@@ -1,5 +1,5 @@
 # Single qubit gates
-Gates are used to control the quantum computer, and bare similarities to gates in a classical computer such as AND and XOR. All transformations can be reversed, except measurement which is only used at the end of a program. 
+Gates are used to control the quantum computer, and bare similarities to gates in a classical computer such as AND and XOR. All transformations can be reversed, except measurement which is only used at the end of a program.
 
 ### X gate (or X rotation)
 Similar to a classical NOT gate. Called a rotation as it rotates the state by pi radians(180 degrees) around the X axis, so if you started in |0> you rotate to |1> and vice versa.
@@ -13,6 +13,12 @@ NB running H H measure returns 0 with P(0) = 1. This is because the H gate can b
 
 ### Measurement gate
 The measurement can only measure along the Z axis (ie up or down) so if the vector is perpendicular to this it's 50:50 what the measurement will return. Consequently experimentally the difference between |+> and |-> cannot be measured, so what we have to do is perform rotations and then use the conventional measurement gate.
+
+A helpful comparison drawn by the book is that a measurement gate does not measure in the conventional sense. It is not like measuring Alice's weight, but like measuring her IQ using a test. This is because the former reveals a preexisting property of Alice, but the latter test only reveals what happens when she has an IQ test, not a numerical property she already had.
+
+Once a qubit, or a set of qubit, has been measured no further information about its coefficients can be deduced. This loss of information when a state is measured is known as the reduction or collapse of the state.
+
+Measurement gates can also be used to initialise a quantum system by measuring all qubits, and then applying X gates to those that returned 1. This puts the system in the |000> state.
 
 ### Z gate
 180 degree rotation around the vertical axis (the Z axis).

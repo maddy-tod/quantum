@@ -1,6 +1,8 @@
 # Multi-qubit gates
 |> is called the ket, and in multi-qubit gates there are now 2 numbers inside it giving the states |00>, |01>, |10> and |11>. The first number is the state of the 2nd qubit and the second of the 1st qubit - ie it's back to front. It is easy to remember by thinking that the right most number is always the 1st qubit.
 
+Though there are 2-qubit gates, there are not any higher order gates due to the technical challenges of building them. These operations are built up from 1 and 2 qubit gates.
+
 ### CNOT gate
 Similar to an if statement. If the control bit (the right most bit) is 1, then flip the other bit else leave it.
 This gives it the 'Truth table' below :
@@ -13,6 +15,8 @@ This gives it the 'Truth table' below :
 | \|11>  | \|01> |
 
 #### NB in the composer the small circle represents the control qubit, and the large circle with a plus represents the affected qubit
+
+CNOT gates are difficult to make, so their numbers should be kept as low as possible. 
 
 
 ### Entanglement
