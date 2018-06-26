@@ -1,11 +1,11 @@
 # Quantum
 
-1. [Intro](Intro.md) - brief overview of necessary concepts
-2. [Single qubit gates](SingleQubitGates.md) - all the single qubit gates available and the probabilities associated with them
-3. [Multi qubit gates](MultiQubitGates.md) - CNOT gates, entanglement and 3 qubit gates
+1. [Intro](Notes/Intro.md) - brief overview of necessary concepts
+2. [Single qubit gates](Notes/SingleQubitGates.md) - all the single qubit gates available and the probabilities associated with them
+3. [Multi qubit gates](Notes/MultiQubitGates.md) - CNOT gates, entanglement and 3 qubit gates
 
 ## Bonus Help
-[Dirac Notation](DiracNotation.md) - brief overview of the notation used
+[Dirac Notation](Notes/DiracNotation.md) - brief overview of the notation used
 
 
 ## References

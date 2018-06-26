@@ -5,7 +5,7 @@ Qubits are the basic units of information. They are labelled |0> and |1> and can
 Qubits can also have a phase. This is denoted by putting coefficients in front of the vectors - a|0> + b|1>. Coefficients can be positive, negative or real.
 What this formula is saying is that the state is made up of a straightforward linear combination of |0> and |1>, in the proportions given by a and b.
 #### If we take the absolute value of a or b and square it, we get the probability of measuring the 0 or the 1 outcome respectively. This is known as the Born Rule, after Max Born who first proposed it.
-However, the state should not be considered to be 0 with P(0)= = a^2 and 1 with P(1)=b^2 as this ignored the fact it is a superposition, and it can be seen from the probabilities in the [Single qubit gates file](SingleQubitGates.md) that this cannot be the case. It is better to think that the qubit takes both values at once. 
+However, the state should not be considered to be 0 with P(0)= = a^2 and 1 with P(1)=b^2 as this ignored the fact it is a superposition, and it can be seen from the probabilities in the [Single qubit gates file](Notes/SingleQubitGates.md) that this cannot be the case. It is better to think that the qubit takes both values at once. 
 
 
 ## Bloch Sphere
