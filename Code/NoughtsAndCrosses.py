@@ -10,8 +10,47 @@ def createQCircuit(board):
     # Create a Quantum Circuit
     qc = QuantumCircuit(q, c)
 
+    index = 0
+    for i in range(0, len(board)):
+        for j in range(0, len(board[i])):
+            if board[i][j] == 'X':
+                qc.x(q[index])
+            else:
+                qc.h(q[index])
+            index+=1
+
+    index = 0
+    for i in range(0, len(board)):
+        for j in range(0, len(board[i])):
+            if board[i][j] == 'X':
+                # add T gate to every option
+                # row checks
+                if i + 1 < 3 :
+                    qc.t(q[index+1])
+                if i - 1 >= 0:
+                    qc.t(q[index-1])
+                # column checks
+                if j + 1 < 3 and index+3 < 9:
+                    qc.t(q[index+3])
+                if j - 1 >= 0 and index-3 >= 0:
+                    qc.t(q[index-3])
+                # diagonal checks
+                if i == j :
+                    qc.t(q[0])
+                    qc.t(q[4])
+                    qc.t(q[8])
+                if (i == 0 and j == 2) or (i == 2 and j == 2):
+                    qc.t(q[2])
+                    qc.t(q[4])
+                    qc.t(q[6])
+
+            index += 1
+
+    qc.measure(q, c)
+    return qc
 
 
+"""
     # Attempt 2 - Pairs of CNOT gates based off close indices
     # Add the gates specific to this board
     index = 0
@@ -36,7 +75,7 @@ def createQCircuit(board):
     qc.measure(q, c)
     return qc
 
-
+"""
 
 """ Attempt 1 - cycle of CNOT gates
 
@@ -95,7 +134,7 @@ def computerTurn(board):
     qc = createQCircuit(board)
 
     # Compile and run the Quantum circuit on a simulator backend
-    job_sim = execute(qc, "local_qasm_simulator", shots=10)
+    job_sim = execute(qc, "local_qasm_simulator", shots=1000)
     sim_result = job_sim.result()
 
     # Show the results
@@ -107,7 +146,7 @@ def computerTurn(board):
 
     # iterate over and get the best move - store list of fairly good moves though
     for key, value in sim_result.get_counts(qc).items():
-        print(key + " " + str(value))
+        #print(key + " " + str(value))
         if not key == "000000000" :
             if value > bestVal :
                 bestMoves.append(key)
@@ -142,8 +181,13 @@ def finished(board) :
         if board[0][2] == board[1][1] and board[2][0] == board[1][1]:
             return True, board[1][1]
 
-    return False, '0'
 
+    # Check to see if the board is complete
+    for i in range (0, len(board)) :
+        for j in range(0, len(board[i])):
+            if board[i][j] == '0':
+                return False, '0'
+    return True, 'No one'
 
 def playGame():
     board = [['0', '0', '0'], ['0', '0', '0'],['0', '0', '0']]
