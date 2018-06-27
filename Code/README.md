@@ -10,5 +10,9 @@ This directory contains all the code examples using QISKit. There are good [gett
 [NoughtsAndCrosses.py](NoughtsAndCrosses.py) - a basic AI to play noughts and crosses against the user
 
 
+
+
+
 [Qconfig.py](Qconfig.py) -  a necessary file to interact with the qunatum computer
+
 [utils.py](utils.py) - some helpful functions for printing and sending output to files
