@@ -3,7 +3,7 @@
 Qubits are the basic units of information. They are labelled |0> and |1> and can be thought of as the 2 energy levels, where |0> is called ground because it is the lower of the 2 energies. |0> and |1> are called the standard basis vectors as they form the basis of the subspace (ie any other vector can be created as a linear combination of these 2 vectors).
 
 Qubits can also have a phase. This is denoted by putting coefficients in front of the vectors - a|0> + b|1>. Coefficients can be positive, negative or real.
-What this formula is saying is that the state is made up of a straightforward linear combination of |0> and |1>, in the proportions given by a and b.
+What this formula is saying is that the state is made up of a straightforward linear combination of |0> and |1>, in the proportions given by a and b.\
 #### If we take the absolute value of a or b and square it, we get the probability of measuring the 0 or the 1 outcome respectively. This is known as the Born Rule, after Max Born who first proposed it.
 However, the state should not be considered to be 0 with P(0)= = a^2 and 1 with P(1)=b^2 as this ignored the fact it is a superposition, and it can be seen from the probabilities in the [Single qubit gates file](Notes/SingleQubitGates.md) that this cannot be the case. It is better to think that the qubit takes both values at once.
 
@@ -17,7 +17,7 @@ The angle from the centre to the surface point is used to describe the state. Th
 ## Superposition
 A linear combination of both the |0> and |1> states. If the chance of it being |0> is equal to the chance of it being |1> it is said to be in an equal superposition state. If this is the case, then the expected value for the experiment is 0.5 (though only 1 or 0 can ever be observed).
 
-|z> = a|0> + b|1>
+|z> = a|0> + b|1> \
 |z> is said to be the superposition of the states |0> and |1>, with amplitudes a and b.
 
 ## Entanglement

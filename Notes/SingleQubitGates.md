@@ -51,7 +51,7 @@ If vector is vertically down : P(1) = 1
 If vector is horizontally forward : P(0) = 1
 If vector is horizontally backward : P(1) = 1
 
-Gates then effect these probabilities by moving the vector.
+Gates then effect these probabilities by moving the vector.\
 E.g.
   If we do H S H : P(0) = P(1) = 0.5
   This is because this makes a vector that points directly right on the page, and so it has an equal chance of being moved to |0> or |1> under the H gate.

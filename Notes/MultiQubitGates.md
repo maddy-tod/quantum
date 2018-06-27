@@ -16,8 +16,7 @@ This gives it the 'Truth table' below :
 
 #### NB in the composer the small circle represents the control qubit, and the large circle with a plus represents the affected qubit
 
-CNOT gates are difficult to make, so their numbers should be kept as low as possible. 
-
+CNOT gates are difficult to make, so their numbers should be kept as low as possible.
 
 ### Entanglement
 Entanglement is not technically a gate, but can be induced as a combination of gates. Entanglement causes 2 qubits to behave in ways which are individually random, but not independent.
