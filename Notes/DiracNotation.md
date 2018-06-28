@@ -1,7 +1,7 @@
 # Dirac Notation
 This notation is used to describe states the quantum computer can be in. It is used elsewhere in the notes but this is a summary. The idea behind it is that when denoted like this, the important part of the vectors (aka the numbers) do not have to be denoted as a subscript.
 
-|x> is the representation of the vector x, and in Dirac notation vectors are known as kets. Essentially anything that describes the vector is put inside the | >. Vectors are used to describe the state of the qubit.
+|x> is the representation of the column vector x, and in Dirac notation vectors are known as kets. Essentially anything that describes the vector is put inside the | >. Vectors are used to describe the state of the qubit. < x | is known as a bra and it represents a row vector.
 
 <x|y> is the inner product (or dot product or scalar product) of the vectors x and y\
 This leads to the conclusion that x and y are orthogonal if <x|y> = 1. Further, <x|x> >0 when |x> != 0.

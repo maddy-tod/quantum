@@ -32,3 +32,9 @@ These diagrams show Bell states, and the graphs below show that the results are 
 The superposition between the states where all 3 qubits are in the |0> state and the one where all 3 qubits are in the |1> state is called the GHZ state. This is written (1/root 2)(|000> - |111>).
 
 The combined properties of a 3 qubit system can be predicted - eg what happens if we measure all 3 qubits in the X direction (XXX) - but the individual outcomes per qubit cannot be predicted. When all 3 qubits are measured in the X direction the result is always -1. If 2 are measured in the Y direction and 1 in the X we get 1. The result is calculated by multiplying all the values read together, where a read 0 is mapped to a 1, and a read 1 is mapped to a -1.
+
+
+### Spooky Action at a distance
+A helpful [video](https://www.youtube.com/watch?v=ZuvK-od647c) explaining entanglement and Bell tests.
+
+Einstein described entanglement as spooky action at a distance as it seemed to suggest that the qubits could communicate at speeds faster than the speed of light, which went against his theory of relativity. He theorised that the particles 'agreed' before they were separated and measured which spin they would have, however the Bell test disproves this. Over several Bell tests you can show  statistically that the theory of local variables must not be true, and a GHZ circuit can also show this but in one run.

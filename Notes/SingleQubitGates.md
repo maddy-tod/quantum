@@ -16,9 +16,11 @@ The measurement can only measure along the Z axis (ie up or down) so if the vect
 
 A helpful comparison drawn by the book is that a measurement gate does not measure in the conventional sense. It is not like measuring Alice's weight, but like measuring her IQ using a test. This is because the former reveals a preexisting property of Alice, but the latter test only reveals what happens when she has an IQ test, not a numerical property she already had.
 
-Once a qubit, or a set of qubit, has been measured no further information about its coefficients can be deduced. This loss of information when a state is measured is known as the reduction or collapse of the state.
+Once a qubit, or a set of qubits, has been measured no further information about its coefficients can be deduced. This loss of information when a state is measured is known as the reduction or collapse of the state.
 
-Measurement gates can also be used to initialise a quantum system by measuring all qubits, and then applying X gates to those that returned 1. This puts the system in the |000> state.
+Measurement gates can also be used to initialise a quantum system by measuring all qubits, and then applying X gates to those that returned 1. This puts the system in the |000> state. Sometimes measurements can be used to get rid of any unwanted information prior to further calculation.
+
+If we have applied an H gate, applying another H gate and then a measurement changes the measurement basis to the x-basis (or superposition basis).
 
 ### Z gate
 180 degree rotation around the vertical axis (the Z axis).
@@ -28,7 +30,7 @@ However, if an H gate is applied first, the vector is now perpendicular to the Z
 ![Z gate when applied after an H gate](https://dal.objectstorage.open.softlayer.com/v1/AUTH_039c3bf6e6e54d76b8e66152e2f87877/images-classroom/h-z-gatepk7ti2a9u9emte29.png)
 
 ### S gate
-90 degree rotation around the Z axis
+90 degree rotation around the Z axis. The state achieved by applying an H gate and then an S gate is called | -> >, and its opposite is | <- >
 
 ### S^t gate
 -90 degree rotation (ie the opposite of S). SS^t returns the vector to its original state.

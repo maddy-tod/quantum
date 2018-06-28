@@ -21,11 +21,21 @@ A linear combination of both the |0> and |1> states. If the chance of it being |
 |z> is said to be the superposition of the states |0> and |1>, with amplitudes a and b.
 
 ## Entanglement
-Observing the first of 2 entangled qubits causes it to behave randomly, but tells you exactly how the other bit would behave if it was also observed.
+Observing the first of 2 entangled qubits causes it to behave randomly, but tells you exactly how the other bit would behave if it was also observed. The states of the 2 qubits cannot be described independently of each other.
 The qubits can be arbitrarily far apart.
 
+A helpful [video](https://www.youtube.com/watch?v=ZuvK-od647c) explaining entanglement and Bell tests.
+
+
+## Measurement
 After measuring a qubit, it becomes a classical bit ie it looses any entanglement or superposition it previously had.
 The results from measuring a qubit, over a series of tests, is often shown as a histogram, where the highest point is the most likely result. If you are using multiple qubits, the results are treated as binary numbers.
 
 ## Decoherence
-Decoherence occurs when some outside force (eg heat energy that is absorbed by the chip) interferes with the computation and makes the results achieved unusable. If these errors occur at a small enough rate they can be corrected. The methods used are different from those used on classical computers but it is still possible.
+Decoherence occurs when some outside force (eg heat energy that is absorbed by the chip) interferes with the computation and makes the results unusable. If these errors occur at a small enough rate they can be corrected. The methods used are different from those used on classical computers but it is still possible.
+
+This can be visualised using the Bloch sphere. In a pure state (uncorrupted state), the vector has length one as it touches the surface of the sphere. If it has been interfered with, the vector will have a length of less than 1 and so sit inside the sphere.
+
+One important measure of decoherence is T1. This is the time it takes the |1> state to decay to the |0> or ground state. This is imporant because it lets you know the length of time calculations will be reliable for, before the values stored change. This is called *energy relaxation*.
+
+T2 is a measure of decoherence on superposition states. It is called *dephasing* and is in terms of time.
