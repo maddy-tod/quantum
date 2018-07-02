@@ -38,3 +38,9 @@ The combined properties of a 3 qubit system can be predicted - eg what happens i
 A helpful [video](https://www.youtube.com/watch?v=ZuvK-od647c) explaining entanglement and Bell tests.
 
 Einstein described entanglement as spooky action at a distance as it seemed to suggest that the qubits could communicate at speeds faster than the speed of light, which went against his theory of relativity. He theorised that the particles 'agreed' before they were separated and measured which spin they would have, however the Bell test disproves this. Over several Bell tests you can show  statistically that the theory of local variables must not be true, and a GHZ circuit can also show this but in one run.
+
+
+### Circuits
+For quantum computers to work, all the gates they use must be reversible - so you can go from output to input as well as input to output. This is an issue when interfacing with conventional circuits as not all the gates they use are reversible. For example the input 11 to an AND gate is the only possible input to produce a 1, however if we get the output 0 there are 3 possible inputs - 00, 01 and 10. To get around this a trick is used. This is adding a control wire (often called d) down which the value 0 is always sent. This is then XOR'd with the output of the function to give the overall output. This is used to make the number of outputs equal to the number of inputs. The inputs are a, b and d, and the outputs are a,b and c (which is d xor the result of F(a,b) where F is the function implemented by the gate).
+
+In reality this technique is not often used as it requires a lot more memory and there are optimisations that can be made.

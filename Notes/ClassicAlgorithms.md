@@ -44,5 +44,19 @@ This solves the problem of error correcting a string of binary numbers given a p
 ## Shor's algorithm
 This solves the problem of factoring a large number into 2 prime numbers, and is very important as it provides an O(d^3) way to do this. The fact it is computationally difficult to do this is the basis of RSA encryption, so when it becomes possible to use Shor's algorithm all of this ubiquitous form of encryption will be broken. The version presented here requires only 10d qubits and is O(d^3) where d is the number of digits.
 
-Factoring is simple if you can find the period of the modular exponential function. This can be described as :\
-Given integers N and a, find the smallest positive integer r  such that (a^r)−1 is a multiple of N. R is called the period of a modulo N.
+Factoring is simple if you can find the period of the modular exponential function. This problem can be described as :\
+Given integers N and a, find the smallest positive integer r  such that (a^r)−1 is a multiple of N. r is called the period of a modulo N.\
+This is equivalent to saying a^r = 1 (mod N).
+This problem is well defined as long as a and N share no common factors (ie gcd(a, N) = 1) and it is this step of the process that can be efficiently simulated by a quantum computer.
+
+
+## Algorithm
+1. Choose a random number a between 2 and N-1 (where N is the number you want to factor and so N = p1 * p2 where px is prime)
+2. Check to see if N and a share any prime factors - if so make the prime factor p1 and p2 can then easily be worked out
+3. Use quantum computer to work out r which is the period of a mod N, if r is even stop else repeat with different a (NB r is very likely to be even, so although this could cause an infinite loop it is very unlikely)\
+ *r is therefore the smallest integer such that (a^r) - 1 is a multiple of N*
+4. Using algebra we can find the factors  \
+(a^r) - 1 = ((a^r) -1)((a^r) + 1) -- this is the difference of 2 squares rule\
+If we assume neither of the 2 terms calculated are multiples of N but their product is (due to the way r is defined) then the 2 terms must be p1 and p2. If they are a multiple of N (eg 2N, 5N etc), then we must give up and start again from step 1. *It can be shown that this second case is very unlikely to happen, so on average no more than 2 calls to the quantum computer are needed*
+
+[This post](http://algassert.com/post/1718) has a good in depth explanation of both the quantum part of the algorithm and the overall process.

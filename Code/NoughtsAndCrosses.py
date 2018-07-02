@@ -46,6 +46,7 @@ def createQCircuit(board):
 
             index += 1
 
+    # should there be H gates here?
     qc.measure(q, c)
     return qc
 
@@ -120,7 +121,6 @@ def userTurn(board):
     while not move.isdigit() :
         move = input('Enter your move from 0 to 8 ')
 
-
     move = int(move)
     movePair = (int(int(move)/3), int(move) %3)
     while board[movePair[0]][movePair[1]] != '0' or move > 8:
@@ -134,7 +134,7 @@ def computerTurn(board):
     qc = createQCircuit(board)
 
     # Compile and run the Quantum circuit on a simulator backend
-    job_sim = execute(qc, "local_qasm_simulator", shots=1000)
+    job_sim = execute(qc, "local_qasm_simulator", shots=100)
     sim_result = job_sim.result()
 
     # Show the results
