@@ -4,6 +4,10 @@ Gates are used to control the quantum computer, and bare similarities to gates i
 ### X gate (or X rotation)
 Similar to a classical NOT gate. Called a rotation as it rotates the state by pi radians(180 degrees) around the X axis, so if you started in |0> you rotate to |1> and vice versa.
 
+Using a different representation this is equivalent to saying :\
+a|0> + b|1> ----> X GATE ----> a|1> + b|0> \
+So the amplitudes associated with |0> and |1> have been swapped.
+
 ### H gate (for Hadamard gate)
 Puts the qubit into an equal superposition state - so P(1) = P(0) = 0.5
 If we apply an H gate to the |0> state, we get |+> which is a fancy way of saying the above. |-> is the same as |+> but it points in the opposite direction. So the line |+> to |-> is perpendicular to the line |1> to |0>. |-> can be achieved by running an X gate then an H gate (aka applying an H gate to |1>).
