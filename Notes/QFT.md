@@ -9,3 +9,6 @@ I would also recommend [these lecture slides](http://www.cs.bham.ac.uk/internal/
 
 ## Discrete Fourier transform
 A good explanation of it can be found [here](http://www.math.mcgill.ca/darmon/courses/12-13/nt/projects/Fangxi-Lin.pdf) and [this video](https://www.youtube.com/watch?v=spUNpyF58BY) also gives a good visual explanation. An additional reference can also be found  [here](http://www-bcf.usc.edu/~tbrun/Course/lecture13.pdf).
+
+***
+[Previous](SimplePrograms.md) - [Contents](../README.md) - [Next](ClassicAlgorithms.md)

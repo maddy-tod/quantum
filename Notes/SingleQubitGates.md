@@ -74,3 +74,7 @@ Quantum circuits are also not allowed loops or any 'copying' of values (as this 
 Another way to think about the reversibility constraint is using matrices. All gates can be written in the form of matrices, which can then be multiplied by the matrix (a,b) made up of the coefficients of the qubit's vector, to give the resulting values of a and b. However, there are some limitations on what the matrices can be due to [the Born Rule](Intro.md). The result of this is that the matrices that can be represented must be unitary. This means that the [adjoint of the matrix](https://en.wikipedia.org/wiki/Adjugate_matrix) when multiplied by the gate matrix must give the identity matrix (ie *U^t * U = I*).
 
 This unitary constraint is the only constraint on the types of operation that can be implemented by a quantum gate! Not all classical gates are unitary - as shown above there is a necessary loss of information from the output of an AND gate as it goes from 2 bits to just 1, but there are ways to convert gates to be unitary.
+
+
+***
+[Previous](Intro.md) - [Contents](../README.md) - [Next](MultiQubitGates.md)

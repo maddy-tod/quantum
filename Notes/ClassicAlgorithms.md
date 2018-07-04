@@ -61,3 +61,7 @@ This problem is well defined as long as a and N share no common factors (ie gcd(
 If we assume neither of the 2 terms calculated are multiples of N but their product is (due to the way r is defined) then the 2 terms must be p1 and p2. If they are a multiple of N (eg 2N, 5N etc), then we must give up and start again from step 1. *It can be shown that this second case is very unlikely to happen, so on average no more than 2 calls to the quantum computer are needed*
 
 [This post](http://algassert.com/post/1718) has a good in depth explanation of both the quantum part of the algorithm and the overall process.
+
+
+***
+[Previous](QFT.md) - [Contents](../README.md)

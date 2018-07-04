@@ -43,3 +43,8 @@ Decoherence occurs when some outside force (eg heat energy that is absorbed by t
 This can be visualised using the Bloch sphere. In a pure state (uncorrupted state), the vector has length one as it touches the surface of the sphere. If it has been interfered with, the vector will have a length of less than 1 and so sit inside the sphere.
 
 One important measure of decoherence is T1. This is the time it takes the |1> state to decay to the |0> or ground state. This is important because it lets you know the length of time calculations will be reliable for, before the values stored change. This is called *energy relaxation*. T2 is a measure of decoherence on superposition states. It is called *dephasing* and is in terms of time.
+
+
+
+***
+[Contents](../README.md) - [Next](SingleQubitGates.md)

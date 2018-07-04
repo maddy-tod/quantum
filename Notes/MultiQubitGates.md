@@ -45,3 +45,6 @@ The combined properties of a 3 qubit system can be predicted - eg what happens i
 A helpful [video](https://www.youtube.com/watch?v=ZuvK-od647c) explaining entanglement and Bell tests.
 
 Einstein described entanglement as spooky action at a distance as it seemed to suggest that the qubits could communicate at speeds faster than the speed of light, which went against his theory of relativity. He theorised that the particles 'agreed' before they were separated and measured which spin they would have, however the Bell test disproves this. Over several Bell tests you can show  statistically that the theory of local variables must not be true, and a GHZ circuit can also show this but in one run.
+
+***
+[Previous](MultiQubitGates.md) - [Contents](../README.md) - [Next](SimplePrograms.md)
