@@ -1,5 +1,5 @@
 # Simple programs
-When you start to link gates up together you can build up further operators or programs.
+When you start to link gates up together you can build up further operators and even programs.
 
 ## Swapping the states of two qubits
 This score swaps the states of 2 qubits. I would recommend working through the inputs and outputs with a piece of paper, just to get your head around how it works (and that it does actually work!).

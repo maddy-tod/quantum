@@ -3,10 +3,9 @@ The quantum Fourier transform(QFT) is at the heart of many quantum algorithms. I
 
 Each state has an amplitude, and the transformations are applied to these.
 
-There is no single operator that transforms a state into its DFT so it must be built up. The resulting amplitudes are related linearly to the originals, so there must be some linear operator which performs the transformation, which can be deduced from the discrete Fourier transform.
+There is no single operator that transforms a state into its QFT so it must be built up. The resulting amplitudes are related linearly to the originals, so there must be some linear operator which performs the transformation, which can be deduced from the discrete Fourier transform.
+
+I would also recommend [these lecture slides](http://www.cs.bham.ac.uk/internal/courses/intro-mqc/current/lecture06_handout.pdf).
 
 ## Discrete Fourier transform
-A good explanation of it can be found [here](http://www.math.mcgill.ca/darmon/courses/12-13/nt/projects/Fangxi-Lin.pdf) and [this video](https://www.youtube.com/watch?v=spUNpyF58BY) also gives a good visual explanation.
-
-
-[Reference](http://www-bcf.usc.edu/~tbrun/Course/lecture13.pdf)
+A good explanation of it can be found [here](http://www.math.mcgill.ca/darmon/courses/12-13/nt/projects/Fangxi-Lin.pdf) and [this video](https://www.youtube.com/watch?v=spUNpyF58BY) also gives a good visual explanation. An additional reference can also be found  [here](http://www-bcf.usc.edu/~tbrun/Course/lecture13.pdf).

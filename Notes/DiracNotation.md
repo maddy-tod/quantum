@@ -4,7 +4,7 @@ This notation is used to describe states the quantum computer can be in. It is u
 |x> is the representation of the column vector x, and in Dirac notation vectors are known as kets. Essentially anything that describes the vector is put inside the | >. Vectors are used to describe the state of the qubit. < x | is known as a bra and it represents a row vector.
 
 <x|y> is the inner product (or dot product or scalar product) of the vectors x and y\
-This leads to the conclusion that x and y are orthogonal if <x|y> = 1. Further, <x|x> >0 when |x> != 0.
+This leads to the conclusion that x and y are orthogonal if <x|y> = 1. Further, <x|x> > 0 when |x> != 0.
 
 An equivalence that is important to remember if you ever look at any other resources is : |ax + by> = a|x> + b|y>
 Computer scientists prefer the RHS, but mathematicians prefer the LHS. This can be expanded as you would expect : \
