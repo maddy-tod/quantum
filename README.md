@@ -1,11 +1,12 @@
 # Quantum
 
 1. [Intro](Notes/Intro.md) - brief overview of necessary concepts
-2. [Single qubit gates](Notes/SingleQubitGates.md) - all the single qubit gates available and the probabilities associated with them
+2. [Single qubit gates](Notes/SingleQubitGates.md) - overview the single qubit gates available and the probabilities associated with them
 3. [Multi qubit gates](Notes/MultiQubitGates.md) - CNOT gates, entanglement and 3 qubit gates
 4. [Simple programs](Notes/SimplePrograms.md) - basic look at what can be done when you build up gates
 5. [Quantum Fourier Transform](Notes/QFT.md) - recommended resources for reading before looking at more complex algorithms
-6. [Classic quantum algorithms](Notes/ClassicAlgorithms.md) -  an explanation of the common quantum algorithms that you hear about often
+6. [Classic quantum algorithms](Notes/ClassicAlgorithms.md) -  an explanation of the quantum algorithms that you hear about often
+7. [Quantum Teleportation](Notes/Teleportation.md) - a look at an application of entanglement
 
 ## Bonus Help
 [Dirac Notation](Notes/DiracNotation.md) - brief overview of the notation used \
