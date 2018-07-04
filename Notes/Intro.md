@@ -31,6 +31,8 @@ A superposition is a linear combination of both the |0> and |1> states. If the c
 ## Entanglement
 Qubits can become entangled with each other which means that the results when they are both measured are too strongly correlated to assume they are independent form each other. Observing the first of 2 entangled qubits causes it to behave randomly, but tells you exactly how the other qubit would behave if it was also observed. This means that states of the 2 qubits cannot be described independently of each other. There is no distance limit on entanglement- qubits can be arbitrarily far apart as once they have become entangled it stays.
 
+The state (|01> + |10>)/root 2 is entangled because if you observe the value of the 1st qubit you know exactly what the state of the 2nd qubit will be, as they are opposite. So if I observe the 1st qubit to be a 0, I know the other qubit must be a 1 as the state must be |01> and vice versa. The state (|01> + |00>)/root 2 is therefore not entangled as if I observe the 1st qubit to be a 0, I have no way of telling if the 2nd qubit is a 1 or a 0, as this 0 could come from the |01> part or the |00> part.
+
 A helpful [video](https://www.youtube.com/watch?v=ZuvK-od647c) explaining entanglement and Bell tests.
 
 
