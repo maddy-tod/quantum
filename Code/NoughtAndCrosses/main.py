@@ -1,6 +1,7 @@
 from userPlayer import UserPlayer
 from TGatePlayer import TGatePlayer
 from randomPlayer import RandomPlayer
+import sys, os
 
 # Takes a sting of 1s and 0s to represent the board
 def printBoard(board) :
@@ -10,7 +11,6 @@ def printBoard(board) :
         for element in row:
             rowStr = rowStr + element + "  "
         print(rowStr)
-
 
 
 
@@ -55,6 +55,7 @@ def playGameWithPlayers(playerOne, playerTwo):
 
     printBoard(board)
     print(finished(board)[1] + " won!")
+    return finished(board)[1]
 
 def playGame():
     playerOne = UserPlayer('X')
@@ -63,6 +64,5 @@ def playGame():
     playGameWithPlayers(playerOne, playerTwo)
 
 
-
-
-playGameWithPlayers(UserPlayer('X'), RandomPlayer('S'))
+# Uncomment this line to play
+#playGame()
