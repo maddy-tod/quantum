@@ -39,14 +39,15 @@ def createQCircuit(board):
                     qc.t(q[0])
                     qc.t(q[4])
                     qc.t(q[8])
-                if (i == 0 and j == 2) or (i == 2 and j == 2):
+                if (i == 0 and j == 2) or (i == 2 and j == 0):
                     qc.t(q[2])
                     qc.t(q[4])
                     qc.t(q[6])
 
             index += 1
 
-    # should there be H gates here?
+    # apply an H gate and measure
+    qc.h(q)
     qc.measure(q, c)
     return qc
 
@@ -145,8 +146,9 @@ def computerTurn(board):
     bestVal = 0;
 
     # iterate over and get the best move - store list of fairly good moves though
+    # key is binary string and value is the number of hits
     for key, value in sim_result.get_counts(qc).items():
-        #print(key + " " + str(value))
+        print(key + " = " + str(value))
         if not key == "000000000" :
             if value > bestVal :
                 bestMoves.append(key)

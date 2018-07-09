@@ -7,7 +7,7 @@ This directory contains all the code examples using QISKit. There are good [gett
 
 [RandomNumber.py](RandomNumber.py) - a simple extenstion of the coin flip, that produces a random number up to a user input limit
 
-[NoughtsAndCrosses.py](NoughtsAndCrosses.py) - a basic AI to play noughts and crosses against the user
+[NoughtsAndCrosses.py](NoughtAndCrosses/NoughtsAndCrosses.py) - a basic AI to play noughts and crosses against the user
 
 
 
