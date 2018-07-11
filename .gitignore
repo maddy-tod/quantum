@@ -1,4 +1,5 @@
 /.idea
 .DS_Store
 Code/__pycache__/
-Code/NoughtAndCrosses/__pycache__/
+*.pyc
+Code/NoughtsAndCrosses/__pycache__/
