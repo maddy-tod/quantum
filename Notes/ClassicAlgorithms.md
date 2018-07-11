@@ -1,5 +1,6 @@
 # Classic examples algorithms
 This document provides a brief summary of the quantum algorithms that you will hear about a lot if you ever look at any resources on quantum computing.
+[This paper](https://people.cs.umass.edu/~strubell/doc/quantum_tutorial.pdf) provides a good clear starting point for understanding the classic algorithms.
 
 *A circuit which provides an output (somewhat magically) is called an oracle, an example is step 2 of Grover's algorithm*
 
