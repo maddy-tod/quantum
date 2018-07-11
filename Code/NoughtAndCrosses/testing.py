@@ -1,6 +1,7 @@
 import main
 from randomPlayer import RandomPlayer
 from TGatePlayer import TGatePlayer
+from SGatePlayer import SGatePlayer
 from contextlib import contextmanager
 import sys, os
 
@@ -65,6 +66,6 @@ def createTest(playerOne, playerTwo, numTests=100):
     print("-------------------------")
 
 
-createTest(TGatePlayer(oneVal) , RandomPlayer(twoVal), 1000)
-createTest(RandomPlayer(oneVal),  TGatePlayer(twoVal), 1000)
-#createTest(RandomPlayer(oneVal), RandomPlayer(twoVal), 1000)
+createTest(TGatePlayer(oneVal) , RandomPlayer(twoVal))
+createTest(RandomPlayer(oneVal),  TGatePlayer(twoVal))
+#createTest(RandomPlayer(oneVal), RandomPlayer(twoVal))

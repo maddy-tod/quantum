@@ -1,6 +1,7 @@
 from userPlayer import UserPlayer
 from TGatePlayer import TGatePlayer
 from randomPlayer import RandomPlayer
+from GroverPlayer import GroverPlayer
 import sys, os
 
 # Takes a sting of 1s and 0s to represent the board
@@ -59,10 +60,10 @@ def playGameWithPlayers(playerOne, playerTwo):
 
 def playGame():
     playerOne = UserPlayer('X')
-    playerTwo = TGatePlayer('S')
+    playerTwo = GroverPlayer('S')
 
     playGameWithPlayers(playerOne, playerTwo)
 
 
 # Uncomment this line to play
-#playGame()
+playGame()

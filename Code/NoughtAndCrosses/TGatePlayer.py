@@ -47,10 +47,12 @@ class TGatePlayer(Player) :
             board[x][y] = self.letter
             return board
 
-        for j in range(0, len(bestMoves)):
-            for i, c in enumerate(bestMoves[j]):
-                if c == "1":
-                    index = (int(i / 3), i % 3)
+        # Start from the end of the array of moves - as this is where the best move will be
+        for config in reversed(bestMoves):
+            # Iterates over a string returning a tuple of an incrementing index and the element
+            for index, val in enumerate(config):
+                if val == "1":
+                    index = (int(index / 3), index % 3)
                     if board[index[0]][index[1]] == '0':
                         board[index[0]][index[1]] = self.letter
                         return board
