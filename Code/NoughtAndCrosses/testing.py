@@ -1,5 +1,6 @@
 import main
 from randomPlayer import RandomPlayer
+from TGatePlayer import TGatePlayer
 from contextlib import contextmanager
 import sys, os
 
@@ -37,16 +38,33 @@ def runTest(numTests, playerOne, playerTwo):
 
 def createTest(playerOne, playerTwo, numTests=100):
 
-    print("Running " + str(numTests) + " of " + playerOne.__class__.__name__ + " against "+ playerTwo.__class__.__name__ )
+    oneName =  playerOne.__class__.__name__
+    twoName =  playerTwo.__class__.__name__
+
+    print("Running " + str(numTests) + " tests of " + oneName+ " against "+ twoName)
 
 
     with suppress_stdout():
         result = runTest(numTests, playerOne, playerTwo)
 
     print(str(numTests) + " tests complete!")
-    print(oneVal + " won " + str(result[0]) + " times")
-    print(twoVal + " won " + str(result[1]) + " times")
+    print(oneName+ " won " + str(result[0]) + " times")
+    print(twoName + " won " + str(result[1]) + " times")
     print("A draw occurred " + str(numTests - result[0] - result[1]) + " times")
 
+    # from testing random against random
+    exp1 = 0.58
+    exp2 = 0.29
+    expd = 0.13
 
-createTest(RandomPlayer(oneVal), RandomPlayer(twoVal), 200)
+    print("-----------")
+    print(oneName + " was %.2f%% off just choosing randomly" % (((result[0] / numTests) - exp1) * 100 ))
+    print(twoName + " was %.2f%% off just choosing randomly" % (((result[1] / numTests) - exp2) * 100))
+    print("Draw was %.2f%% off just choosing randomly" % ((((numTests - result[0] - result[1]) / numTests) - expd) * 100))
+
+    print("-------------------------")
+
+
+createTest(TGatePlayer(oneVal) , RandomPlayer(twoVal), 1000)
+createTest(RandomPlayer(oneVal),  TGatePlayer(twoVal), 1000)
+#createTest(RandomPlayer(oneVal), RandomPlayer(twoVal), 1000)

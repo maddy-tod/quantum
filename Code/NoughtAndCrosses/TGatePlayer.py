@@ -1,6 +1,7 @@
 # Import the QISKit SDK
 from qiskit import QuantumCircuit, ClassicalRegister, QuantumRegister, execute
 from player import Player
+import random
 
 class TGatePlayer(Player) :
 
@@ -12,7 +13,7 @@ class TGatePlayer(Player) :
 
     def takeTurn(self, board):
         print('Its the quantum computers turn!')
-        qc = createQCircuit(board)
+        qc = createQCircuit(self, board)
 
         # Compile and run the Quantum circuit on a simulator backend
         job_sim = execute(qc, "local_qasm_simulator", shots=100)
@@ -35,6 +36,15 @@ class TGatePlayer(Player) :
 
         if bestVal == 0:
             print("Oh no the computer didn't find anything :(")
+            # need to return a random val
+            x = random.randint(0, 2)
+            y = random.randint(0, 2)
+
+            while board[x][y] != '0' :
+                x = random.randint(0, 2)
+                y = random.randint(0, 2)
+
+            board[x][y] = self.letter
             return board
 
         for j in range(0, len(bestMoves)):
@@ -42,14 +52,14 @@ class TGatePlayer(Player) :
                 if c == "1":
                     index = (int(i / 3), i % 3)
                     if board[index[0]][index[1]] == '0':
-                        board[index[0]][index[1]] = 'S'
+                        board[index[0]][index[1]] = self.letter
                         return board
 
         print("Oh no the computer didn't find anything :(")
         return board
 
 
-def createQCircuit(board):
+def createQCircuit(self, board):
     # Create a Quantum Register with the necessary number of qubits
     q = QuantumRegister(9)
     # Create a Classical Register with the necessary number of bits
@@ -60,7 +70,7 @@ def createQCircuit(board):
     index = 0
     for i in range(0, len(board)):
         for j in range(0, len(board[i])):
-            if board[i][j] == 'X':
+            if board[i][j] == self.notLetter:
                 qc.x(q[index])
             else:
                 qc.h(q[index])
@@ -69,7 +79,7 @@ def createQCircuit(board):
     index = 0
     for i in range(0, len(board)):
         for j in range(0, len(board[i])):
-            if board[i][j] == 'X':
+            if board[i][j] == self.notLetter:
                 # add T gate to every option
                 # row checks
                 if i + 1 < 3 :
