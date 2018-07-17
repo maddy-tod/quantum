@@ -11,6 +11,48 @@ p cnf 3 5
 -1 2 3 0
 """
 
+sat_cnf35 = """
+c Example DIMACS 3-sat, with 3 solutions: 1 -2 3 0, -1 -2 -3 0, 1 2 -3 0
+p cnf 3 5
+-1 -2 -3  0
+1 -2 3 0
+1 2 -3 0
+1 -2 -3 0
+-1 2 3 0
+"""
+sat_cnf36 = """
+c Example DIMACS 3-sat, with 3 solutions: 1 -2 3 0, -1 -2 -3 0, 1 2 -3 0
+p cnf 3 6
+-1 -2 -3  0
+1 -2 3 0
+1 2 -3 0
+1 -2 -3 0
+-1 2 3 0
+1 2 0
+"""
+sat_cnf37 = """
+c Example DIMACS 3-sat, with 3 solutions: 1 -2 3 0, -1 -2 -3 0, 1 2 -3 0
+p cnf 3 7
+-1 -2 -3  0
+1 -2 3 0
+1 2 -3 0
+1 -2 -3 0
+-1 2 3 0
+1 2 0
+-1 -3 0
+"""
+sat_cnf38 = """
+c Example DIMACS 3-sat, with 3 solutions: 1 -2 3 0, -1 -2 -3 0, 1 2 -3 0
+p cnf 3 8
+-1 -2 -3  0
+1 -2 3 0
+1 2 -3 0
+1 -2 -3 0
+-1 2 3 0
+1 2 0
+-1 -3 0
+-2 -3 0
+"""
 sat_cnf4 = """
 c Example DIMACS 3-sat, with 3 solutions: 1 -2 3 0, -1 -2 -3 0, 1 2 -3 0
 p cnf 4 5
@@ -76,9 +118,9 @@ def run(currentTest):
     print(result['result'])
 
 
-tests = [sat_cnf3, sat_cnf4, sat_cnf5,sat_cnf6, sat_cnf8, sat_cnf9]
-
-index = 3
+#tests = [sat_cnf3, sat_cnf4, sat_cnf5,sat_cnf6, sat_cnf8, sat_cnf9]
+tests = [sat_cnf35, sat_cnf36, sat_cnf37, sat_cnf38]
+index = 5
 for test in tests:
     t0 = time()
     run(test)
@@ -88,20 +130,3 @@ for test in tests:
 
     index += 1
 
-
-
-"""
-    c All the rules that can be applied to play tic tac toe
-    c The current configuration is appended at the end
-    c Current idea is val -> all options
-    p cnf 9 10
-    -1 -2 -3 -4 -5 -7 -9 0
-    -2 -1 -3 -5 -8 0
-    -3 -1 -2 -5 -6 -7 -9 0
-    -4 -1 -5 -6 -7 0
-    -5 -1 -2 -3 -4 -6 -7 -8 -9 0
-    -6 -3 -4 -5 -9 0
-    -7 -1 -3 -4 -5 -8 -9 0
-    -8 -2 -5 -7 -9 0
-    -9 -1 -3 -5 -6 -7 -8 0
-    """

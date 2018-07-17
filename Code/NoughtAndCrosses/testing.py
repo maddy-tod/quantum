@@ -3,11 +3,12 @@ from randomPlayer import RandomPlayer
 from TGatePlayer import TGatePlayer
 from SGatePlayer import SGatePlayer
 from contextlib import contextmanager
+from GroverPlayer import GroverPlayer
 import sys, os
-
+from qiskit import  available_backends
 
 oneVal = 'X'
-twoVal = 'O'
+twoVal = 'S'
 
 # code from https://thesmithfam.org/blog/2012/10/25/temporarily-suppress-console-output-in-python/
 @contextmanager
@@ -35,7 +36,21 @@ def runTest(numTests, playerOne, playerTwo):
         if result == twoVal:
             countTwo += 1
 
+
     return countOne, countTwo
+
+def printStats(oneName, twoName, result):
+    # from testing random against random
+    exp1 = 0.58
+    exp2 = 0.29
+    expd = 0.13
+
+    print("-----------")
+    print(oneName + " was %.2f%% off just choosing randomly" % (((result[0] / numTests) - exp1) * 100))
+    print(twoName + " was %.2f%% off just choosing randomly" % (((result[1] / numTests) - exp2) * 100))
+    print(
+        "Draw was %.2f%% off just choosing randomly" % ((((numTests - result[0] - result[1]) / numTests) - expd) * 100))
+
 
 def createTest(playerOne, playerTwo, numTests=100):
 
@@ -53,19 +68,11 @@ def createTest(playerOne, playerTwo, numTests=100):
     print(twoName + " won " + str(result[1]) + " times")
     print("A draw occurred " + str(numTests - result[0] - result[1]) + " times")
 
-    # from testing random against random
-    exp1 = 0.58
-    exp2 = 0.29
-    expd = 0.13
-
-    print("-----------")
-    print(oneName + " was %.2f%% off just choosing randomly" % (((result[0] / numTests) - exp1) * 100 ))
-    print(twoName + " was %.2f%% off just choosing randomly" % (((result[1] / numTests) - exp2) * 100))
-    print("Draw was %.2f%% off just choosing randomly" % ((((numTests - result[0] - result[1]) / numTests) - expd) * 100))
+    printStats(oneName, twoName, result)
 
     print("-------------------------")
 
-
-createTest(TGatePlayer(oneVal) , RandomPlayer(twoVal))
-createTest(RandomPlayer(oneVal),  TGatePlayer(twoVal))
+print(available_backends({'local': False}))
+#createTest(GroverPlayer(oneVal) , RandomPlayer(twoVal), 20)
+createTest(RandomPlayer(oneVal),  GroverPlayer(twoVal), 20)
 #createTest(RandomPlayer(oneVal), RandomPlayer(twoVal))

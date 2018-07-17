@@ -34,18 +34,6 @@ class TGatePlayer(Player) :
                     bestMoves.append(key)
                     bestVal = value
 
-        if bestVal == 0:
-            print("Oh no the computer didn't find anything :(")
-            # need to return a random val
-            x = random.randint(0, 2)
-            y = random.randint(0, 2)
-
-            while board[x][y] != '0' :
-                x = random.randint(0, 2)
-                y = random.randint(0, 2)
-
-            board[x][y] = self.letter
-            return board
 
         # Start from the end of the array of moves - as this is where the best move will be
         for config in reversed(bestMoves):
@@ -58,7 +46,7 @@ class TGatePlayer(Player) :
                         return board
 
         print("Oh no the computer didn't find anything :(")
-        return board
+        return self.chooseRandomly(board)
 
 
 def createQCircuit(self, board):
