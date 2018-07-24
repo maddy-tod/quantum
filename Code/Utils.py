@@ -34,6 +34,19 @@ def pprint(dict):
         i += 1
 
 
+def getMax(dict) :
+
+    maxVal = 0
+    maxKey = ""
+    for key, val in dict.items():
+        if val > maxVal :
+            maxVal = val
+            maxKey = key
+
+    return maxKey
+
+
+
 # Takes the results dictionary and the name of a file
 # Appends the dictionary to the file
 def addToFile(dict, filename):
