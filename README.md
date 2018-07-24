@@ -10,7 +10,7 @@
 
 ## Bonus Help
 [Dirac Notation](Notes/DiracNotation.md) - brief overview of the notation used \
-[Fun facts](Notes/FunFacts.md) - some of my favourite facts about quantum computers
+[Fun facts](Notes/FunFacts.md) - some of my favourite facts about quantum computers\
 [Resources](Notes/Resources.md) - a list of useful videos
 
 ## References
