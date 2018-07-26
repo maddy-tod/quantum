@@ -23,7 +23,6 @@ def suppress_stdout():
 
 def runTest(numTests, playerOne, playerTwo):
 
-
     countOne = 0;
     countTwo = 0;
 
@@ -72,7 +71,6 @@ def createTest(playerOne, playerTwo, numTests=100):
 
     print("-------------------------")
 
-print(available_backends({'local': False}))
 #createTest(GroverPlayer(oneVal) , RandomPlayer(twoVal), 20)
-createTest(RandomPlayer(oneVal),  GroverPlayer(twoVal), 20)
+createTest(RandomPlayer(oneVal),  GroverPlayer(twoVal), 2)
 #createTest(RandomPlayer(oneVal), RandomPlayer(twoVal))

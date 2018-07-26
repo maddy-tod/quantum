@@ -60,7 +60,6 @@ class GroverPlayer(Player) :
 
     @staticmethod
     def runGrover(currentRules) :
-        
 
         params = {
             'problem': {'name': 'search'},
@@ -94,10 +93,8 @@ class GroverPlayer(Player) :
         
         # gen all possible coords
         for x, y in itertools.product(rows, cols):
-            print(str(x) + " " + str(y)) 
             if board[x][y] == '0' :
                 board[x][y] = self.letter
-                print(str(x) + " !!!! " + str(y))
                 return board
 
 
