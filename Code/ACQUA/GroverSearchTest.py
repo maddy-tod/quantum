@@ -1,5 +1,10 @@
+"""
+This file was made to test the efficiency of Grover search with different numbers of variables/rules
+"""
+
 from qiskit_acqua import run_algorithm
 from time import time
+
 
 sat_cnf3 = """
 c Example DIMACS 3-sat, with 3 solutions: 1 -2 3 0, -1 -2 -3 0, 1 2 -3 0

@@ -28,6 +28,7 @@ for key, value in sim_result.get_counts(qc).items():
         currentMax = value
         currentVal = int(key)
 
+
 res = "Your coin flip returned "
 if currentVal > 0 :
     res += "HEADS"
