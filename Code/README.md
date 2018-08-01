@@ -1,11 +1,11 @@
 # QISKit examples
 This directory contains all the code examples using QISKit. There are good [getting started tutorials](https://qiskit.org/documentation/) to help with the first steps and basic program structure.
 
-[QTest.py](QTest.py) - code taken directly from the tutorials
+[QTest.py](Basics/QTest.py) - code taken directly from the tutorials
 
-[CoinFlip.py](CoinFlip.py) - the most basic quantum program that simulates flipping a coin
+[CoinFlip.py](Basics/CoinFlip.py) - the most basic quantum program that simulates flipping a coin
 
-[RandomNumber.py](RandomNumber.py) - a simple extenstion of the coin flip, that produces a random number up to a user input limit
+[RandomNumber.py](Basics/RandomNumber.py) - a simple extenstion of the coin flip, that produces a random number up to a user input limit
 
 [NoughtsAndCrosses.py](NoughtAndCrosses/NoughtsAndCrosses.py) - a basic AI to play noughts and crosses against the user
 

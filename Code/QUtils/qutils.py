@@ -1,9 +1,4 @@
 import os
-from qiskit import QuantumCircuit, ClassicalRegister, QuantumRegister
-
-
-
-
 
 # Takes a dict of results and prints them with 3 column headings
 def pprint(dict):
