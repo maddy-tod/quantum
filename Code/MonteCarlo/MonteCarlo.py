@@ -60,48 +60,46 @@ def adder(size):
     a = 0
     b = size
     sum = 2 * size
+    iter = size - 1
 
     # deal with the 1st digit
     # set the carry
-    qc.ccx(q[a+2], q[b+2], q[carry])
+    qc.ccx(q[a+iter], q[b+iter], q[carry])
     # add to the sum
-    qc.cx(q[a+2], q[sum+2])
-    qc.cx(q[b+2], q[sum+2])
+    qc.cx(q[a+iter], q[sum+iter])
+    qc.cx(q[b+iter], q[sum+iter])
 
     # add the carry to the next sum digit
-    qc.cx(q[carry], q[sum+1])
+    qc.cx(q[carry], q[sum+(iter - 1)])
     # reset the carry
-    qc.ccx(q[a+2], q[b+2], q[carry])
-
-    # get carry for new digits
-    qc.ccx(q[a+1], q[b+1], q[carry])
-    qc.ccx(q[sum+1], q[b+1], q[carry])
-    qc.ccx(q[a+1], q[sum+1], q[carry])
-
-    # add the new digits
-    qc.cx(q[a+1], q[sum+1])
-    qc.cx(q[b+1], q[sum+1])
-
-    # add the carry to the next sum digit
-    qc.cx(q[carry], q[sum])
-    # reset the carry
-    qc.ccx(q[a+1], q[b+1], q[carry])
-    qc.x(q[sum+1])
-    qc.ccx(q[b+1], q[sum+1], q[carry])
-    qc.ccx(q[a+1], q[sum+1], q[carry])
-    qc.x(q[sum+1])
-
-    # set the next carry
-    qc.ccx(q[a], q[b], q[carry])
-    qc.ccx(q[sum], q[b], q[carry])
-    qc.ccx(q[a], q[sum], q[carry])
-
-    # add the new digits
-    qc.cx(q[a], q[sum])
-    qc.cx(q[b], q[sum])
+    qc.ccx(q[a+iter], q[b+iter], q[carry])
 
 
-def run():
+    # start, end, step
+    for i in range (iter-1, -1, -1 ):
+        # set carry for new digits
+        qc.ccx(q[a+i], q[b+i], q[carry])
+        qc.ccx(q[sum+i], q[b+i], q[carry])
+        qc.ccx(q[a+i], q[sum+i], q[carry])
+
+        # add the new digits to sum
+        qc.cx(q[a+i], q[sum+i])
+        qc.cx(q[b+i], q[sum+i])
+
+
+        if (i - 1 >= 0) :
+            # add the carry to the next sum digit - -1 as for next digit
+            qc.cx(q[carry], q[sum + i - 1])
+
+            # reset the carry
+            qc.ccx(q[a + i], q[b + i], q[carry])
+            qc.x(q[sum + i])
+            qc.ccx(q[b + i], q[sum + i], q[carry])
+            qc.ccx(q[a + i], q[sum + i], q[carry])
+            qc.x(q[sum + i])
+
+
+def run(size):
     # Compile and run the Quantum circuit on a simulator backend
     job_sim = execute(qc, "local_qasm_simulator", shots=1000)
     sim_result = job_sim.result()
@@ -116,10 +114,10 @@ def run():
         res = res[::-1]
 
         # extract results into variables
-        a = int(res[0:3], 2)
-        b = int(res[3:6], 2)
-        ans = int(res[6:9], 2)
-        carry =  int(res[9], 2) * 8
+        a = int(res[0:size], 2)
+        b = int(res[size:(2*size)], 2)
+        ans = int(res[(2*size):(3*size)], 2)
+        carry =  int(res[(3*size)], 2) * (2 ** size)
 
         # display results
         print(str(a) + " + " + str(b) + " = " + str(ans) + " + " + str(carry))
@@ -131,6 +129,6 @@ def main():
         size = input("How many qubits would you like to add?")
 
     prepareCircuit(int(size))
-    run()
+    run(int(size))
 
 main()
