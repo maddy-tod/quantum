@@ -1,5 +1,7 @@
 import os
 
+import matplotlib.pyplot as plt
+
 # Takes a dict of results and prints them with 3 column headings
 def pprint(dict):
     print("Result      Count       Probability")
@@ -114,3 +116,44 @@ def updateFileCounts(results, filename):
 def loadFromFile(filename):
     raise Exception('Method not yet implemented')
 
+
+# in future make axis depend on shots
+def graph(dict, shots=1000):
+    x = []
+    y = []
+
+    for k, v in dict.items():
+        x.append(int(k, 2))
+        y.append(v)
+
+    plt.plot(x, y)
+    plt.xlabel("Number")
+    plt.ylabel("Frequency")
+    plt.show()
+
+
+def graphProbability(dict):
+    # Sum the values to get the overall number of tests
+    total = 0;
+
+    x = []
+    vals = []
+    y = []
+
+    for k, val in dict.items():
+        x.append(int(k, 2))
+
+        # Store the value and increase the total
+        total += val
+        vals.append(val)
+
+
+    # Iterate over the results and print
+    i = 0
+    for v in vals :
+        y.append(v/ total)
+
+    plt.plot(x, y)
+    plt.xlabel("Number")
+    plt.ylabel("Probability")
+    plt.show()
