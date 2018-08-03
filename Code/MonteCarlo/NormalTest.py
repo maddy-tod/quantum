@@ -11,9 +11,9 @@ from qiskit import execute
 
 
 # Create a Quantum Register with 2 qubits.
-q = QuantumRegister(3)
+q = QuantumRegister(2)
 # Create a Classical Register with 2 bits.
-c = ClassicalRegister(3)
+c = ClassicalRegister(2)
 # Create a Quantum Circuit
 qc = QuantumCircuit(q, c)
 
@@ -25,24 +25,35 @@ qc.s(q)
 
 pi = math.pi
 # add the gates to get the normal distribution
-
+"""
 # makes 111 less likely
 qc.crz(-0.3*pi, q[2], q[1])
 qc.crz(-0.3*pi, q[1], q[0])
 
 # some how encourages 100
 qc.x(q[2])
-qc.crz(-0.3*pi, q[0], q[1])
-qc.crz(-0.3*pi, q[1], q[2])
-qc.crz(-0.3*pi, q[0], q[2])
+qc.crz(-0.4*pi, q[0], q[1])
+qc.crz(-0.4*pi, q[1], q[2])
+qc.crz(-0.4*pi, q[0], q[2])
 qc.x(q[2])
+
+"""
+
+# I don't get why but this bumps up the ends and drops the middle
+# aka the exact opposite of what we want
+qc.crz(-0.5*pi, q[1], q[0])
+qc.crz(-0.5*pi, q[0], q[1])
+
+# this then flips it the right way up
+qc.rz(pi, q[0])
+
 
 
 qc.h(q)
 # Add a Measure gate to see the state.
 qc.measure(q, c)
 # Compile and run the Quantum circuit on a simulator backend
-job_sim = execute(qc, "local_qasm_simulator", shots=1000)
+job_sim = execute(qc, "local_qasm_simulator", shots=5000)
 sim_result = job_sim.result()
 
 # Show the results

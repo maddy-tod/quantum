@@ -15,6 +15,7 @@ Circuit consists of
 
 from qiskit import QuantumCircuit, ClassicalRegister, QuantumRegister, execute
 
+import math
 import sys
 import os
 sys.path.append(os.path.abspath('../QUtils'))
@@ -48,9 +49,37 @@ def prepareCircuit(size):
     for i in range (2*size):
         qc.h(q[i])
 
+
+    # set A to have a normal distribution
+    normal(0,size)
+
+
     adder(size)
 
     qc.measure(q,c)
+
+
+# NB CURRENTLY ONLY FOR 3 QUBITS
+def normal(base, size) :
+    for i in range (0, size):
+        qc.s(q[base+i])
+
+    pi = math.pi
+    # add the gates to get the normal distribution
+
+    # makes 111 less likely
+    qc.crz(-0.3 * pi, q[base + 2], q[base + 1])
+    qc.crz(-0.3 * pi, q[base + 1], q[base])
+
+    # some how encourages 100
+    qc.x(q[base + 2])
+    qc.crz(-0.3 * pi, q[base], q[base + 1])
+    qc.crz(-0.3 * pi, q[base + 1], q[base + 2])
+    qc.crz(-0.3 * pi, q[base], q[base + 2])
+    qc.x(q[base + 2])
+
+    for i in range (0, size):
+        qc.h(q[base+i])
 
 def adder(size):
     # size is the number of qubits per number to be added
