@@ -211,24 +211,28 @@ def transformCSV(filename):
                 for i in range (0, len(parts)):
                     toAdd = 0
 
+                    # use caps to standardize
+                    currentVal = parts[i].upper()
+
                     # if numerical can already be used so just add it
                     if parts[i].isnumeric():
-                       toAdd = parts[i]
+                       toAdd = currentVal
                     else :
 
                         # only will happen on 1st line
                         if mapToNum.get(i) is None :
-                            mapToNum[i] = [parts[i]]
+                            mapToNum[i] = [currentVal]
 
                         # get the values associated with this index
                         listOfVals = mapToNum.get(i)
 
                         # if you haven't seen this value at this index before, add it
-                        if parts[i] not in listOfVals :
-                            listOfVals.append(parts[i])
+
+                        if currentVal not in listOfVals :
+                            listOfVals.append(currentVal)
 
                         # the value corresponding to this string in this location
-                        toAdd = listOfVals.index(parts[i])
+                        toAdd = listOfVals.index(currentVal.upper())
 
                     # Add this value to the overall sting
                     currentStr = currentStr + str(toAdd) + ", "
@@ -240,8 +244,10 @@ def transformCSV(filename):
             # Create 1st line
             topLine = str(lineCount) + "," + str(len(titles)) + "," + ",".join(titles)
 
-            print(overallStr)
-            with open("outp.csv", "w+") as outp :
+            nameParts = filename.split(".")
+            nameParts[0] += "-QMLREADY"
+
+            with open('.'.join(nameParts), "w+") as outp :
                 outp.write(topLine + '\n')
                 outp.write(overallStr)
 
