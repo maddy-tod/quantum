@@ -13,15 +13,18 @@ import matplotlib.pyplot as plt
 from datasets import *
 
 
-def classify(location='numData',file='test.csv',class_labels=[r'A', r'B', r'C']) :
+def classify(location='',file='testClassify.csv',class_labels=[r'A', r'B', r'C']) :
 
+    # Title is defined in usedDefinedData function - can edit if needed but that file is from the
+    # tutorial
     sample_Total, training_input, test_input, class_labels = userDefinedData(location,
                                                                              file,
                                                                              class_labels,
-                                                                             training_size=10,
-                                                                             test_size=5,
+                                                                             training_size=500,
+                                                                             test_size=200,
                                                                              n=2,
                                                                              PLOT_DATA=True)
+
     # n = 2 is the dimension of each data pointtotal_array, label_to_labelclass = get_points(test_input, class_labels)
     total_array, label_to_labelclass = get_points(test_input, class_labels)
 
@@ -43,13 +46,14 @@ def classify(location='numData',file='test.csv',class_labels=[r'A', r'B', r'C'])
 
     algo_input = get_input_instance('SVMInput')
     algo_input.training_dataset = training_input
+    # could change the test input here - but still would require the correct results
     algo_input.test_dataset = test_input
     algo_input.datapoints = total_array
     result = run_algorithm(params, algo_input)
 
     print("kernel matrix during the training:")
     kernel_matrix = result['kernel_matrix_training']
-    img = plt.imshow(np.asmatrix(kernel_matrix), interpolation='nearest', origin='upper', cmap='bone_r')
+    img = plt.imshow(np.asmatrix(kernel_matrix), interpolation='nearest', origin='lower', cmap='bone_r')
     plt.show()
 
     print("testing success ratio: ", result['test_success_ratio'])
@@ -57,7 +61,8 @@ def classify(location='numData',file='test.csv',class_labels=[r'A', r'B', r'C'])
 
 
 
-#classify("../Classification/numData")
+# This classifies the height weight dataset into 3 distinct bands
+#classify(location="")
 
-
+classify(file="bank1000.csv")
 

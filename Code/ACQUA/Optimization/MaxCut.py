@@ -16,12 +16,12 @@ from qiskit_acqua.ising import maxcut
 
 # Generating a graph of 4 nodes
 
-n=4 # Number of nodes in graph
+n=5 # Number of nodes in graph
 G=nx.Graph()
 G.add_nodes_from(np.arange(0,n,1))
 
 # tuple is (i,j,weight) where (i,j) is the edge
-elist=[(0,1,1.0),(0,2,1.0),(0,3,1.0),(1,2,1.0),(2,3,1.0)]
+elist=[(0,1,1.0),(0,2,1.0),(0,3,1.0),(1,2,1.0),(2,3,1.0),(1,4,1.0)]
 
 G.add_weighted_edges_from(elist)
 
@@ -43,7 +43,26 @@ print(w)
 
 
 
+print("Brute forcing it")
+best_cost_brute = 0
+for b in range(2**n):
+    # x is the row being checked
+    x = [int(t) for t in reversed(list(bin(b)[2:].zfill(n)))]
+    #print(x)
+    cost = 0
+    for i in range(n):
+        for j in range(n):
+            #print(str(cost) + " + " + str(w[i,j]) + " * " + str(x[i])+ " * "+ str(1-x[j]))
+            cost = cost + w[i,j]*x[i]*(1-x[j])
+    if best_cost_brute < cost:
+        best_cost_brute = cost
+        xbest_brute = x
+    print('case = ' + str(x)+ ' cost = ' + str(cost))
 
+colors = ['r' if xbest_brute[i] == 0 else 'b' for i in range(n)]
+nx.draw_networkx(G, node_color=colors, node_size=600, alpha=.8, pos=pos)
+plt.show()
+print('\nBest solution = ' + str(xbest_brute) + ' cost = ' + str(best_cost_brute))
 
 
 

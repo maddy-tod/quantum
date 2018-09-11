@@ -157,3 +157,98 @@ def graphProbability(dict):
     plt.xlabel("Number")
     plt.ylabel("Probability")
     plt.show()
+
+
+# Used to convert ; separated files into CSV files
+def semiColonToCSV(filename) :
+    try:
+        # Check if the file is of the correct format
+        with open(filename) as file:
+            # Create a temporary file to allow the file to be copied over
+            with open("temp.csv", "w+") as tfile:
+
+                # Iterate over the file, copying and incrementing counters as necessary
+                for line in file.readlines():
+                    parts = line.split(";")
+                    tfile.write(','.join(parts))
+
+
+        # Rename the file to be the desired filename
+        os.rename("temp.csv", filename)
+
+    except FileNotFoundError:
+        print("That file could not be found :(")
+
+
+# NB must have category variable at the end
+def transformCSV(filename):
+    # take all the column titles
+    # count rows
+
+    try:
+        # Check if the file is of the correct format
+        with open(filename) as file:
+            # read the titles
+            topLine = file.readline()
+
+            titles = topLine.split(",")
+            # remove the last title as this is the category variable and so does not need a label
+            titles = titles[:-1]
+
+
+            lineCount = 0
+            mapToNum = {}
+            overallStr = ""
+            # iterate over the other lines in the file
+            for line in file.readlines():
+                # add a new line
+                lineCount +=1
+                print("looking at line ", lineCount)
+
+                # split into each variable
+                parts = line.split(",")
+                currentStr = ""
+                for i in range (0, len(parts)):
+                    toAdd = 0
+
+                    # if numerical can already be used so just add it
+                    if parts[i].isnumeric():
+                       toAdd = parts[i]
+                    else :
+
+                        # only will happen on 1st line
+                        if mapToNum.get(i) is None :
+                            mapToNum[i] = [parts[i]]
+
+                        # get the values associated with this index
+                        listOfVals = mapToNum.get(i)
+
+                        # if you haven't seen this value at this index before, add it
+                        if parts[i] not in listOfVals :
+                            listOfVals.append(parts[i])
+
+                        # the value corresponding to this string in this location
+                        toAdd = listOfVals.index(parts[i])
+
+                    # Add this value to the overall sting
+                    currentStr = currentStr + str(toAdd) + ", "
+
+                # remove the final comma and space, and add a newline
+                overallStr = overallStr + currentStr[:-2]  + '\n'
+
+            # Finish up and write to file
+            # Create 1st line
+            topLine = str(lineCount) + "," + str(len(titles)) + "," + ",".join(titles)
+
+            print(overallStr)
+            with open("outp.csv", "w+") as outp :
+                outp.write(topLine + '\n')
+                outp.write(overallStr)
+
+
+    except FileNotFoundError:
+        print("That file could not be found :(")
+
+
+transformCSV("bank1000.csv")
+
