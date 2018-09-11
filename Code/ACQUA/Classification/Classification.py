@@ -20,8 +20,8 @@ def classify(location='',file='testClassify.csv',class_labels=[r'A', r'B', r'C']
     sample_Total, training_input, test_input, class_labels = userDefinedData(location,
                                                                              file,
                                                                              class_labels,
-                                                                             training_size=500,
-                                                                             test_size=200,
+                                                                             training_size=200,
+                                                                             test_size=50,
                                                                              n=2,
                                                                              PLOT_DATA=True)
 
@@ -62,7 +62,8 @@ def classify(location='',file='testClassify.csv',class_labels=[r'A', r'B', r'C']
 
 
 # This classifies the height weight dataset into 3 distinct bands
-#classify(location="")
+#classify()
 
+# Classifies a much larger dataset of banking data - more attributes and more rows so it takes much longer
 classify(file="bank1000.csv")
 
