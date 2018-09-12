@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 from datasets import *
 
 
-def classify(location='',file='testClassify.csv',class_labels=[r'A', r'B', r'C']) :
+def classify(location='',file='testClassify.csv',class_labels=[r'A', r'B']) :
 
     # Title is defined in usedDefinedData function - can edit if needed but that file is from the
     # tutorial
@@ -65,5 +65,6 @@ def classify(location='',file='testClassify.csv',class_labels=[r'A', r'B', r'C']
 #classify()
 
 # Classifies a much larger dataset of banking data - more attributes and more rows so it takes much longer
-classify(file="bank1000.csv")
+# Trying to estimate based on a phone call if they will stay with the company
+classify(file="bank1000.csv", class_labels=[r'Yes', r'No'])
 
