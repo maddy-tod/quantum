@@ -84,14 +84,17 @@ def maxCut(graph=None, n=5):
 
 def makeGraph(file=None, num=5):
 
+    # NB can use qiskit_aqua.ising.maxcut.random_graph to make a much nicer (cleverer) random graph
+
+
     # Graph of the problem
     # Either created randomly or read from a file
     G = None
 
     # Number of nodes in the graph
-    if num is None:
+    if not num :
         num = 5
-    if file is None:
+    if not file :
         # Generating a graph of 4 nodes
 
         G = nx.Graph()
@@ -100,8 +103,10 @@ def makeGraph(file=None, num=5):
         # tuple is (i,j,weight) where (i,j) is the edge
         elist = []
 
+        # prevent infinite looping
+        failed = False
         # add random number of edges
-        for count in range (0, r.randint(0,num) + num) :
+        for count in range (0, r.randint(num,num*3)) :
             start = r.randint(0,num)
             end = r.randint(0,num)
 
@@ -112,8 +117,13 @@ def makeGraph(file=None, num=5):
             # don't have repeated edges
             if ((start,end) or (end,start)) in elist :
                 count -=1
+                if failed :
+                    # already failed on the last try, so stop trying
+                    break
+                failed = True
             else :
                 elist.append((start,end))
+                failed = False
 
         print(elist)
 
@@ -133,4 +143,4 @@ def makeGraph(file=None, num=5):
 
 
 
-maxCut()
+maxCut(n=10)
