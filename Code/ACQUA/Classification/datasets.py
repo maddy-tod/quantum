@@ -590,4 +590,3 @@ def userDefinedData(location, file, class_labels,training_size, test_size, n=2, 
         plt.show()
 
     return sample_train, training_input, test_input, class_labels
-

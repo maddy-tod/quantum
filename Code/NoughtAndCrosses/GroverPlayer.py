@@ -52,8 +52,6 @@ class GroverPlayer(Player) :
             currentConfig += "0"
             currentRules += currentConfig
 
-
-       
         newBoard = self.runGrover(currentRules)
 
         return self.convertFromSAT(newBoard, board)

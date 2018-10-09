@@ -19,6 +19,7 @@ sim_result = job_sim.result()
 
 # Show the results
 print("simulation: ", sim_result)
+print(type(sim_result))
 
 currentMax = 0
 currentVal = 0
