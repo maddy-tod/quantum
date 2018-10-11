@@ -24,6 +24,8 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.decomposition import PCA
 import matplotlib.pyplot as plt
 
+
+
 def ad_hoc_data(training_size, test_size, n, gap, PLOT_DATA):
     class_labels = [r'A', r'B']
     if n == 2:
@@ -557,7 +559,7 @@ def userDefinedData(location, file, class_labels,training_size, test_size, n=2, 
     data, target, target_names = load_data(location, file)
 
     sample_train, sample_test, label_train, label_test = train_test_split(
-        data, target, test_size=0.3, random_state=22)
+        data, target,test_size=0.25, train_size=0.75 ,random_state=22)
 
     # Now we standarize for gaussian around 0 with unit variance
     std_scale = StandardScaler().fit(sample_train)
@@ -587,6 +589,6 @@ def userDefinedData(location, file, class_labels,training_size, test_size, n=2, 
                         sample_train[label_train == k, 1][:training_size])
 
         plt.title("PCA dim. reduced user dataset")
-        plt.show()
+        #plt.show()
 
     return sample_train, training_input, test_input, class_labels
