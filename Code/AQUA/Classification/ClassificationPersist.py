@@ -12,12 +12,13 @@ n = 2 # dimension of each data point
 training_dataset_size = 20
 testing_dataset_size = 10
 
-sample_Total, training_input, test_input, class_labels = datasets.ad_hoc_data(training_size=training_dataset_size,
+sample_Total, training_input, test_input, class_labels = datasets.userDefinedData(training_size=training_dataset_size,
                                                                      test_size=testing_dataset_size,
                                                                      n=n, gap=0.3, PLOT_DATA=False)
 
 datapoints, class_to_label = split_dataset_to_data_and_labels(test_input)
 print(class_to_label)
+print(datapoints)
 
 svm = get_algorithm_instance("QSVM.Kernel")
 svm.random_seed = 10598
