@@ -12,13 +12,15 @@ n = 2 # dimension of each data point
 training_dataset_size = 20
 testing_dataset_size = 10
 
-sample_Total, training_input, test_input, class_labels = datasets.userDefinedData(training_size=training_dataset_size,
-                                                                     test_size=testing_dataset_size,
-                                                                     n=n, gap=0.3, PLOT_DATA=False)
+sample_Total, training_input, test_input, class_labels = datasets.userDefinedData(file = 'bank1000.csv', location='',training_size=training_dataset_size,
+                                                                     test_size=testing_dataset_size, class_labels=[0,1],
+                                                                     n=n, PLOT_DATA=False)
+
 
 datapoints, class_to_label = split_dataset_to_data_and_labels(test_input)
-print(class_to_label)
-print(datapoints)
+
+
+
 
 svm = get_algorithm_instance("QSVM.Kernel")
 svm.random_seed = 10598
@@ -29,7 +31,7 @@ feature_map.init_args(num_qubits=2, depth=2, entanglement='linear')
 
 svm.init_args(training_input, test_input, datapoints[0], feature_map)
 
-
+print("Running algo")
 result = svm.run()
 
 print("kernel matrix during the training:")
@@ -40,8 +42,14 @@ plt.show()
 print("testing success ratio: ", result['testing_accuracy'])
 print("predicted classes:", result['predicted_classes'])
 
-predicted_labels = svm.predict(datapoints[0])
 
-predicted_classes = map_label_to_class_name(predicted_labels, svm.label_to_class)
-print("ground truth: {}".format(datapoints[1]))
+
+print("----------single data item------------------")
+testinp = [[35, 2, 1, 2, 0, 747, 0, 0, 0, 23, 4, 141, 2, 176, 3, 1]]
+toPredict = datasets.singleDataItem(file = 'bank1000.csv', location='', data = testinp)
+print(toPredict)
+print("----------------------------")
+
+predicted_labels = svm.predict(toPredict)
+
 print("prediction:   {}".format(predicted_labels))
