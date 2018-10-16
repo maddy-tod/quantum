@@ -184,7 +184,6 @@ def semiColonToCSV(filename) :
 def transformCSV(filename):
     # take all the column titles
     # count rows
-
     try:
         # Check if the file is of the correct format
         with open(filename) as file:
@@ -203,7 +202,6 @@ def transformCSV(filename):
             for line in file.readlines():
                 # add a new line
                 lineCount +=1
-                print("looking at line ", lineCount)
 
                 # split into each variable
                 parts = line.split(",")
@@ -256,5 +254,42 @@ def transformCSV(filename):
         print("That file could not be found :(")
 
 
-transformCSV("bank1000.csv")
+def takeNumLines(filename, n):
 
+    try:
+        # Check if the file is of the correct format
+        with open(filename) as file:
+            # read the titles
+            topLine = file.readline()
+
+
+            # change the first number to be the new number of rows
+            titles = topLine.split(",")
+            titles[0] = str(n)
+
+            # create a new filename to reflect the number of rows it contains
+            nameParts = filename.split(".")
+            nameParts[0] += str(n)
+
+
+            # write out to this new file
+            with open('.'.join(nameParts), "w+") as outp:
+
+                # write the amended titles
+                outp.write(','.join(titles))
+
+                # write out all the other lines - not alterations needed
+                while n > 0 :
+                    outp.write(file.readline())
+                    n-=1
+
+
+
+
+
+    except FileNotFoundError:
+        print("That file could not be found :(")
+
+transformCSV("bankUSE.csv")
+
+takeNumLines("bankUSE-QMLREADY.csv", 200)
