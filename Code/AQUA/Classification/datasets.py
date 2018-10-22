@@ -561,6 +561,8 @@ def userDefinedData(location, file, class_labels,training_size, test_size, n=2, 
     sample_train, sample_test, label_train, label_test = train_test_split(
         data, target,test_size=0.25, train_size=0.75 ,random_state=22)
 
+
+
     # Now we standarize for gaussian around 0 with unit variance
     std_scale = StandardScaler().fit(sample_train)
     sample_train = std_scale.transform(sample_train)
@@ -572,17 +574,30 @@ def userDefinedData(location, file, class_labels,training_size, test_size, n=2, 
     sample_train = pca.transform(sample_train)
     sample_test = pca.transform(sample_test)
 
+
     # Samples are pairs of points
     samples = np.append(sample_train, sample_test, axis=0)
     minmax_scale = MinMaxScaler((-1, 1)).fit(samples)
     sample_train = minmax_scale.transform(sample_train)
-    minmax_scale.transform(sample_test)
+    sample_test = minmax_scale.transform(sample_test)
+
+  
+
+    # If class labels are numeric
+    if class_labels[0].isdigit():
+        # Pick training size number of samples from each distro
+        training_input = {key: (sample_train[label_train == int(key), :])[:training_size] for k, key in enumerate(class_labels)}
+        test_input = {key: (sample_test[label_test == int(key), :])[: test_size] for k, key in enumerate(class_labels)}
+
+    else:
+        # if they aren't
+        training_input = {key: (sample_train[label_train == k, :])[:training_size] for k, key in
+                         enumerate(class_labels)}
+        test_input = {key: (sample_train[label_train == k, :])[training_size:(
+                training_size + test_size)] for k, key in enumerate(class_labels)}
 
 
-    # Pick training size number of samples from each distro
-    training_input = {key: (sample_train[label_train == k, :])[:training_size] for k, key in enumerate(class_labels)}
-    test_input = {key: (sample_train[label_train == k, :])[training_size:(
-            training_size + test_size)] for k, key in enumerate(class_labels)}
+
 
 
     if PLOT_DATA:
@@ -591,7 +606,7 @@ def userDefinedData(location, file, class_labels,training_size, test_size, n=2, 
                         sample_train[label_train == k, 1][:training_size])
 
         plt.title("PCA dim. reduced user dataset")
-        #plt.show()
+        plt.show()
 
 
     return sample_train, training_input, test_input, class_labels
@@ -613,7 +628,7 @@ def singleDataItem(location, file, data, n=2):
     sample_train = np.vstack((sample_train,data))
 
 
-    #TODO check that none of this is chaning the order of the variables - if so will cause issues and this whole method won't work!
+    #TODO check that none of this is changing the order of the variables - if so will cause issues and this whole method won't work!
 
     # Now we standarize for gaussian around 0 with unit variance
     std_scale = StandardScaler().fit(sample_train)
