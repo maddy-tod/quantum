@@ -35,81 +35,28 @@ datasets = importlib.import_module('Code.AQUA.Classification.datasets')
 # 200 and 200 is fine - so it depends on the size of the training set
 # classify(file="bank1000.csv", class_labels=[r'Yes', r'No'], train_size=100, test_size=50)
 
-"""
-def classify(location='', file='testClassify.csv', class_labels=[r'A', r'B'], train_size=200, test_size=50):
-    # Title is defined in usedDefinedData function - can edit if needed but that file is from the
-    # tutorial
 
-    #sample_Total, training_input, test_input, class_labels = datasets.userDefinedData(location, file, class_labels,training_size=train_size,
-     #                                                                        test_size=test_size,
-      #                                                                       n=2, PLOT_DATA=False)
-
-    sample_Total, training_input, test_input, class_labels = datasets.ad_hoc_data(training_size=20,
-                                                                         test_size=10,
-                                                                         n=2, gap=0.3, PLOT_DATA=True)
-
-
-    
-
-
-    # n = 2 is the dimension of each data point
-    datapoints, class_to_label = split_dataset_to_data_and_labels(test_input)
-
-    params = {
-        'problem': {'name': 'svm_classification', 'random_seed': 10598},
-        'algorithm': {
-            'name': 'QSVM.Kernel'
-        },
-        'backend': {'name': 'qasm_simulator', 'shots': 10},
-        'feature_map': {'name': 'SecondOrderExpansion', 'depth': 2, 'entanglement': 'linear'}
-     }
-
-    algo_input = get_input_instance('SVMInput')
-    algo_input.training_dataset = training_input
-    algo_input.test_dataset = test_input
-    algo_input.datapoints = datapoints[0]  # 0 is data, 1 is labels
-
-    print("running algo")
-    result = run_algorithm(params, algo_input)
-    print("kernel matrix during the training:")
-    kernel_matrix = result['kernel_matrix_training']
-    img = plt.imshow(np.asmatrix(kernel_matrix), interpolation='nearest', origin='upper', cmap='bone_r')
-    plt.show()
-
-    print("testing success ratio: ", result['testing_accuracy'])
-    print("predicted classes:", result['predicted_classes'])
-
-"""
-
-def classify(location='',file='testClassify.csv',class_labels=[r'A', r'B'], train_size=200, test_size=50) :
+def classify(location='',file='testClassify.csv',class_labels=[r'A', r'B'], train_size=100, test_size=50) :
 
     # Title is defined in usedDefinedData function - can edit if needed but that file is from the
     # tutorial
-    """sample_Total, training_input, test_input, class_labels = datasets.userDefinedData(location,
+    sample_Total, training_input, test_input, class_labels = datasets.userDefinedData(location,
                                                                              file,
-                                                                            [0,1], #class_labels,
+                                                                             [r'1', r'61'], #class_labels,
                                                                              training_size=train_size,
                                                                              test_size=test_size,
                                                                              n=2, # normally n = 2, but can be bigger - timed out with n = 3
                                                                              PLOT_DATA=True)
-    """
 
-    sample_Total, training_input, test_input, class_labels = datasets.Breast_cancer(training_size=20, test_size=10, n=2,
-                                                                           PLOT_DATA=True)
+
 
     # n = 2 is the dimension of each data point
     # replaced get_points with split_dataset_to_data_and_labels
-    #total_array, label_to_labelclass = split_dataset_to_data_and_labels(test_input, class_labels)
 
     datapoints, class_to_label = split_dataset_to_data_and_labels(test_input)
     label_to_class = {label: class_name for class_name, label in class_to_label.items()}
-    print(class_to_label, label_to_class)
-    """
-    sample_total <class 'numpy.ndarray'>
-    training_input <class 'dict'>
-    test_input <class 'dict'>
-    class_labels <class 'list'>
-    """
+    print(class_to_label)
+    
 
     params = {
         'problem': {'name': 'svm_classification', 'random_seed': 10598},
@@ -131,12 +78,12 @@ def classify(location='',file='testClassify.csv',class_labels=[r'A', r'B'], trai
     result = run_algorithm(params, algo_input)
 
     time_taken_secs = (time.time() - start_time)
-    time_taken_format = str(int(time_taken_secs / 60)) + ":" + ((time_taken_secs % 60))
+    time_taken_format = str(int(time_taken_secs / 60)) + ":" + str((time_taken_secs % 60))
     print("--- %s ---" % time_taken_format)
 
 
 
-    # print(result)
+    print(result)
     print("kernel matrix during the training:")
     kernel_matrix = result['kernel_matrix_training']
     img = plt.imshow(np.asmatrix(kernel_matrix), interpolation='nearest', origin='upper', cmap='bone_r')
@@ -144,15 +91,21 @@ def classify(location='',file='testClassify.csv',class_labels=[r'A', r'B'], trai
 
     print("testing success ratio: ", result['testing_accuracy'])
 
+    # from new notebook
+    print("testing success ratio: ", result['testing_accuracy'])
+    print("predicted classes:", result['predicted_classes'])
+
     print("ground truth: {}".format(map_label_to_class_name(datapoints[1], label_to_class)))
     print("predicted:    {}".format(result['predicted_classes']))
 
 
+    #TODO takes over 3 hours!!!!!!
 
 # This classifies the height weight dataset into 3 distinct bands
 #classify()
 
 
-classify(file="bank1000.csv", class_labels=[r'Yes', r'No'], train_size=20, test_size=5)
+# All seems to only be one colour of data atm?
+classify(file="KansasData.csv", class_labels=[r'1', r'61'], train_size=50, test_size=10)
 
 

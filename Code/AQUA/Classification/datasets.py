@@ -581,7 +581,7 @@ def userDefinedData(location, file, class_labels,training_size, test_size, n=2, 
     sample_train = minmax_scale.transform(sample_train)
     sample_test = minmax_scale.transform(sample_test)
 
-  
+
 
     # If class labels are numeric
     if class_labels[0].isdigit():
@@ -607,7 +607,6 @@ def userDefinedData(location, file, class_labels,training_size, test_size, n=2, 
 
         plt.title("PCA dim. reduced user dataset")
         plt.show()
-
 
     return sample_train, training_input, test_input, class_labels
 
